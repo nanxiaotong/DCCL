@@ -17,9 +17,6 @@ from logger import SummaryLogger
 import utils
 import network_wrn
 
-# import AFID_old as AFID
-
-
 parser = argparse.ArgumentParser(description='Quantization finetuning for CIFAR100')
 parser.add_argument('--text', default='log.txt', type=str)
 parser.add_argument('--exp_name', default='cifar100/FFL_res32', type=str)
@@ -43,14 +40,11 @@ print(args)
 
 os.environ['CUDA_VISIBLE_DEVICES'] = args.cu_num
 print(torch.cuda.is_available())
-# 保证唯一输出
 torch.backends.cudnn.deterministic = True
-# 预先选取最佳网络层
 torch.backends.cudnn.benchmark = False
 
 
 # MaualSeed ####################
-# 为CPU设置种子用于生成随机数，以使得结果是确定的
 torch.manual_seed(int(args.seed))
 
 #### random Seed #####
