@@ -1,6 +1,3 @@
-# 更换的是注意力所在resnet的位置
-
-# Change the dataset path
 DATASET_PATH ='~/data'
 
 import argparse
