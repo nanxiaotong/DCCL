@@ -18,8 +18,6 @@ import utils
 import network_wrn
 print(torch.cuda.is_available())
 
-# import AFID_old as AFID
-
 
 parser = argparse.ArgumentParser(description='Quantization finetuning for CIFAR100')
 parser.add_argument('--text', default='log.txt', type=str)
@@ -39,9 +37,8 @@ parser.add_argument('--widen_factor', type=int, default=8, help='Model width.')
 parser.add_argument('--consistency_rampup', '--consistency_rampup', default=80, type=float,
                     metavar='consistency_rampup', help='consistency_rampup ratio')
 
-# 保证唯一输出
+
 torch.backends.cudnn.deterministic = True
-# 预先选取最佳网络层
 torch.backends.cudnn.benchmark = False
 
 args = parser.parse_args()
@@ -49,7 +46,6 @@ print(args)
 
 
 # MaualSeed ####################
-# 为CPU设置种子用于生成随机数，以使得结果是确定的
 torch.manual_seed(int(args.seed))
 
 #### random Seed #####
