@@ -17,8 +17,6 @@ from logger import SummaryLogger
 import utils
 import network_VGG
 
-# import AFID_old as AFID
-
 
 parser = argparse.ArgumentParser(description='Quantization finetuning for CIFAR100')
 parser.add_argument('--text', default='log.txt', type=str)
